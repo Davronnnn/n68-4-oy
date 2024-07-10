@@ -1,37 +1,35 @@
-const books = [
-    {
-        title: "Sariq devni minib",
-        author: "Xudoyberdi To'xtaboyev",
-        year: 2100,
-        genre: "fiction",
-    },
-    {
-        title: "Kichkina shahzoda",
-        author: "Antuan de sent",
-        year: 1800,
-        genre: "comedy",
-    },
-    {
-        title: "Qo'rqma",
-        author: "Javlon Jovliyev",
-        year: 2018,
-        genre: "horror",
-    },
-    {
-        title: "Mehrobdan chayon",
-        author: "Abdulla Qodiriy",
-        year: 2015,
-        genre: "fiction",
-    },
-];
+const elInputName = document.querySelector("#name-input");
+const elInputRelationship = document.querySelector("#relationship-input");
+const elInputPhone = document.querySelector("#phone-input");
+const elForm = document.querySelector("#form");
+const elWrapper = document.querySelector("#results");
 
-function getNewBooks(elements) {
-    const newElements = [];
+const contacts = [];
+elForm.addEventListener("submit", (evt) => {
+    evt.preventDefault();
 
-    for (let i = 0; i < elements.length; i++) {
-        if (elements[i].year > 2010) {
-            newElements.push(elements[i]);
-        }
-    }
-    return newElements;
+    const newContact = {
+        name: elInputName.value,
+        relationship: elInputRelationship.value,
+        phone: elInputPhone.value,
+    };
+
+    contacts.push(newContact);
+    createContactCard();
+});
+
+function createContactCard() {
+    const newDiv = document.createElement("div");
+
+    newDiv.className = "card px-5 py-3 mt-3";
+
+    // html element
+    newDiv.innerHTML = `
+                <strong> Salom </strong>
+                <h3>${elInputName.value}</h3>
+                <p>${elInputRelationship.value}</p>
+                <a href="">${elInputPhone.value}</a>
+    `;
+
+    elWrapper.appendChild(newDiv);
 }
