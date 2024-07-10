@@ -1,16 +1,14 @@
-
-
-.text{
+.text {
     width: 300px;
     background-color: red;
 }
 
-.text-active{
+.text-active {
     font-size: 3rem;
     color: blue;
     background-color: pink;
 }
-.result{
+.result {
     color: gray;
     background-color: deeppink;
     text-shadow: 3px 4px 5px red;
