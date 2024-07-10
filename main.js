@@ -23,7 +23,7 @@ function createContactCard() {
 
     newDiv.className = "card px-5 py-3 mt-3";
 
-    // html element
+    // html element2
     newDiv.innerHTML = `
                 <strong> Salom </strong>
                 <h3>${elInputName.value}</h3>
