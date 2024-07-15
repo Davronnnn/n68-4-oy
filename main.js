@@ -1,35 +1,50 @@
-const elInputName = document.querySelector("#name-input");
-const elInputRelationship = document.querySelector("#relationship-input");
-const elInputPhone = document.querySelector("#phone-input");
-const elForm = document.querySelector("#form");
-const elWrapper = document.querySelector("#results");
+const people = [
+    { name: "Alice", age: 17 },
+    { name: "Bob", age: 18 },
+    { name: "Charlie", age: 16 },
+    { name: "David", age: 20 },
+];
+// let total = 0;
 
-const contacts = [];
-elForm.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-
-    const newContact = {
-        name: elInputName.value,
-        relationship: elInputRelationship.value,
-        phone: elInputPhone.value,
-    };
-
-    contacts.push(newContact);
-    createContactCard();
+// for (let i = 0; i < people.length; i++) {
+//     console.log(people[i].age);
+//     total = total + people[i].age;
+// }
+// people.forEach((val) => {
+//     console.log(val);
+//     total += val.age;
+// });
+const total = people.reduce((prev, val) => {
+    let firstValue = 0;
+    if (prev.age) {
+        firstValue = prev.age;
+    } else {
+        firstValue = prev;
+    }
+    return firstValue + val.age;
 });
 
-function createContactCard() {
-    const newDiv = document.createElement("div");
+const numbers = [1, 2, 103, 103, 5, 99, 6, 7, 8, 9];
+const numbers2 = [-8, -9, -5];
 
-    newDiv.className = "card px-5 py-3 mt-3";
+function findMaxNumber(array) {
+    // let max = array[0];
+    // for (let i = 0; i < array.length; i++) {
+    //     if (max < array[i]) {
+    //         max = array[i];
+    //     }
+    // }
+    // return max;
 
-    // html element2
-    newDiv.innerHTML = `
-                <strong> Salom </strong>
-                <h3>${elInputName.value}</h3>
-                <p>${elInputRelationship.value}</p>
-                <a href="">${elInputPhone.value}</a>
-    `;
-
-    elWrapper.appendChild(newDiv);
+    // const result = array.reduce((prev, val) => {
+    // if (prev > val) {
+    //     return prev;
+    // } else {
+    //     return val;
+    // }
+    // });
+    return array.reduce((prev, val) => (prev > val ? prev : val));
 }
+
+console.log(findMaxNumber(numbers));
+console.log(findMaxNumber(numbers2));
